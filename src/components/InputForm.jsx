@@ -1,8 +1,11 @@
-import  { useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { generateLearningPlan } from "../services/contentCurationService";
+import { auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const InputForm = ({ setLearningPlan }) => {
+  const [user] = useAuthState(auth);
   const [preferences, setPreferences] = useState({
     topic: "",
     duration: 30,
@@ -22,6 +25,10 @@ const InputForm = ({ setLearningPlan }) => {
       console.error("Error generating learning plan:", error);
     }
   };
+
+  if (!user) {
+    return <div>Please log in to create a learning plan.</div>;
+  }
 
   return (
     <form onSubmit={handleSubmit}>

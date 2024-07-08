@@ -1,8 +1,18 @@
 
 import PropTypes from "prop-types";
+import { auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const LearningDashboard = ({ learningPlan }) => {
-  if (!learningPlan) return <div>Please create a learning plan.</div>;
+  const [user] = useAuthState(auth);
+
+  if (!user) {
+    return <div>Please log in to view your learning dashboard.</div>;
+  }
+
+  if (!learningPlan) {
+    return <div>Please create a learning plan.</div>;
+  }
 
   return (
     <div>
@@ -10,7 +20,7 @@ const LearningDashboard = ({ learningPlan }) => {
       {learningPlan.dailyGoals.map((goal, index) => (
         <div key={index}>
           <h3>Day {goal.day}</h3>
-          <h4>Video Lessons:</h4>
+          <h4>Lessons:</h4>
           <ul>
             {goal.lessons.map((lesson, i) => (
               <li key={i}>
