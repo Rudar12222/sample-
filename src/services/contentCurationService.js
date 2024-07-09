@@ -44,7 +44,7 @@ const fetchYouTubeLessons = async (playlistId) => {
 
     return response.data.items.map((item) => ({
       title: item.snippet.title,
-      link: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
+      videoId: item.snippet.resourceId.videoId,
     }));
   } catch (error) {
     console.error("Error fetching YouTube lessons:", error);
@@ -60,9 +60,17 @@ const generateLearningPlan = async (preferences) => {
   const lessonsPerDay = Math.ceil(lessons.length / duration);
 
   for (let day = 1; day <= duration; day++) {
+    const dailyLessons = lessons.slice(
+      (day - 1) * lessonsPerDay,
+      day * lessonsPerDay
+    );
+
     const dailyGoal = {
       day,
-      lessons: lessons.slice((day - 1) * lessonsPerDay, day * lessonsPerDay),
+      lessons: dailyLessons,
+      message: dailyLessons.length
+        ? ""
+        : "No videos available today, please review previous lessons.",
     };
 
     dailyGoals.push(dailyGoal);
