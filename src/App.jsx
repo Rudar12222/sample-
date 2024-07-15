@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import InputForm from "./components/InputForm";
 import LearningDashboard from "./components/LearningDashboard";
 import { auth, signInWithGoogle, logOut } from "./firebase";
@@ -21,8 +21,8 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <h1>Learning Platform</h1>
+    <div className="p-16 flex flex-col gap-8">
+      <h1 className="text-5xl font-bold">Learning Platform</h1>
       {user ? (
         <div>
           <button onClick={logOut}>Log Out</button>
