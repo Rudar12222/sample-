@@ -3,6 +3,7 @@ import heroImg from "../assets/hero.png";
 import Navbar from "../components/Navbar";
 import { FaArrowRight } from "react-icons/fa6";
 import FeatureCards from "../components/Landing/FeatureCards";
+import Testimony from "../components/Landing/Testimony";
 const Home = () => {
   return (
     <div className="flex flex-col items-center z-10 relative">
@@ -33,6 +34,7 @@ const Home = () => {
         </div>
       </div>
       <FeatureCards />
+      <Testimony />
     </div>
   );
 };
