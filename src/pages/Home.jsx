@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import heroImg from "../assets/hero.png";
 import Navbar from "../components/Navbar";
 import { FaArrowRight } from "react-icons/fa6";
+import FeatureCards from "../components/Landing/FeatureCards";
 const Home = () => {
   return (
     <div className="flex flex-col items-center z-10 relative">
       <Navbar />
-      <div className="hero h-[calc(100vh_-_160px)] flex place-items-center">
+      <div className="h-[calc(100vh_-_160px)] flex place-items-center">
         <img
           src={heroImg}
           className="w-full absolute left-0 opacity-80 top-0 z-0"
@@ -31,6 +32,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
+      <FeatureCards />
     </div>
   );
 };
