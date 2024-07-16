@@ -37,7 +37,7 @@ const Navbar = () => {
               key={item.title}
               to={item.path}
               className={
-                "text-white hover:text-gray-200 cursor-pointer hover:underline hover:underline-offset-4" +
+                "text-black hover:text-violet-400 cursor-pointer hover:underline hover:underline-offset-4" +
                 (activeNavvLink === item.id
                   ? " font-bold underline-offset-4 underline"
                   : "")
@@ -47,7 +47,12 @@ const Navbar = () => {
             </Link>
           ))}
         </ul>
-        <button className="p-2 px-6 text-sm">Contact Us</button>
+        <button className="p-2 px-6 text-sm  text-white  bg-violet-500 hover:bg-violet-400 cursor-pointer">
+          Log In
+        </button>
+        <button className="p-2 px-6 text-sm  text-white bg-violet-500 hover:bg-violet-400 cursor-pointer ">
+          Sign In
+        </button>
       </div>
     </nav>
   );

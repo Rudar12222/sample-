@@ -8,7 +8,7 @@ import Features from "../components/Landing/Features";
 import Footer from "../components/Footer";
 const Home = () => {
   return (
-    <div className="flex flex-col items-center z-10 relative">
+    <div className="flex flex-col items-center z-10 relative ">
       <Navbar />
       <div className="h-[calc(100vh_-_160px)] flex place-items-center">
         <img
@@ -17,7 +17,7 @@ const Home = () => {
           alt="hero"
         />
         <div className="w-1/2 mx-auto flex flex-col items-center gap-8 text-center z-10">
-          <h1 className="text-6xl font-bold text-center text-white">
+          <h1 className="text-6xl font-bold text-center text-black">
             Where the joy of learn meets the power of community
           </h1>
           <p>
@@ -25,10 +25,12 @@ const Home = () => {
             engage in <br /> discussions, and elevate your learning journey with
             us.
           </p>
-          <button>Start your travel</button>
+          <button className="p-2  text-white bg-violet-500 px-6 text-sm hover:bg-violet-400 cursor-pointer">
+            Get Started
+          </button>
           <Link
             to="/"
-            className="text-sm hover:text-white text-[#DDD6FE] flex flex-row gap-2 place-items-center"
+            className="text-sm hover:text-violet-400 text-violet-500 flex flex-row gap-2 place-items-center"
           >
             <span>Watch a video</span>
             <FaArrowRight />
