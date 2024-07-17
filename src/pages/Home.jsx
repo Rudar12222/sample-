@@ -6,6 +6,7 @@ import FeatureCards from "../components/Landing/FeatureCards";
 import Testimony from "../components/Landing/Testimony";
 import Features from "../components/Landing/Features";
 import Footer from "../components/Footer";
+
 const Home = () => {
   return (
     <div className="flex flex-col items-center z-10 relative ">
@@ -25,9 +26,11 @@ const Home = () => {
             engage in <br /> discussions, and elevate your learning journey with
             us.
           </p>
-          <button className="p-2  text-white bg-violet-500 px-6 text-sm hover:bg-violet-400 cursor-pointer">
+           <Link to="/signup">
+          <button className=" p-2  text-white bg-violet-500 px-6 text-sm hover:bg-violet-400 cursor-pointer"
+          >
             Get Started
-          </button>
+          </button></Link>
           <Link
             to="/"
             className="text-sm hover:text-violet-400 text-violet-500 flex flex-row gap-2 place-items-center"

@@ -47,6 +47,7 @@ const Navbar = () => {
             </Link>
           ))}
         </ul>
+        
         <button className="p-2 px-6 text-sm  text-white  bg-violet-500 hover:bg-violet-400 cursor-pointer">
           Log In
         </button>

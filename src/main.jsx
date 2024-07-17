@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Error from "./pages/Error.jsx";
+import SignUpForm  from "./components/SignUpForm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,9 +14,12 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/auth",
+    path: "/app",
     element: <App />,
-  },
+  },{
+    path:"/signup", 
+    element: <SignUpForm />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
