@@ -31,30 +31,41 @@ const InputForm = ({ setLearningPlan }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Topic:
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="topic">
+          Topic:
+        </label>
         <input
           type="text"
           name="topic"
           value={preferences.topic}
           onChange={handleChange}
           required
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
-      </label>
-      <label>
-        Duration (days):
+      </div>
+      <div>
+        <label className="block text-gray-700 font-bold mb-2" htmlFor="duration">
+          Duration (days):
+        </label>
         <select
           name="duration"
           value={preferences.duration}
           onChange={handleChange}
+          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
         >
           <option value={30}>30</option>
           <option value={60}>60</option>
           <option value={90}>90</option>
         </select>
-      </label>
-      <button type="submit">Create Learning Plan</button>
+      </div>
+      <button
+        type="submit"
+        className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
+      >
+        Create Learning Plan
+      </button>
     </form>
   );
 };
