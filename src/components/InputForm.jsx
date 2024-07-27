@@ -1,10 +1,11 @@
 import { useState } from "react";
+
 import PropTypes from "prop-types";
 import { generateLearningPlan } from "../services/contentCurationService";
 import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-const InputForm = ({ setLearningPlan }) => {
+const InputForm = ({ setLearningPlan, addCourse }) => {
   const [user] = useAuthState(auth);
   const [preferences, setPreferences] = useState({
     topic: "",
@@ -21,6 +22,7 @@ const InputForm = ({ setLearningPlan }) => {
     try {
       const learningPlan = await generateLearningPlan(preferences);
       setLearningPlan(learningPlan);
+      addCourse(preferences.topic); // Add the new course
     } catch (error) {
       console.error("Error generating learning plan:", error);
     }
@@ -46,7 +48,10 @@ const InputForm = ({ setLearningPlan }) => {
         />
       </div>
       <div>
-        <label className="block text-gray-700 font-bold mb-2" htmlFor="duration">
+        <label
+          className="block text-gray-700 font-bold mb-2"
+          htmlFor="duration"
+        >
           Duration (days):
         </label>
         <select
@@ -60,18 +65,20 @@ const InputForm = ({ setLearningPlan }) => {
           <option value={90}>90</option>
         </select>
       </div>
+     
       <button
         type="submit"
         className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
       >
         Create Learning Plan
-      </button>
+      </button> 
     </form>
   );
 };
 
 InputForm.propTypes = {
   setLearningPlan: PropTypes.func.isRequired,
+  addCourse: PropTypes.func.isRequired,
 };
 
 export default InputForm;
