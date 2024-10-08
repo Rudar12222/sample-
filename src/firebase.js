@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 
 // Replace with your Firebase configuration
+//secure secret keys
+//use a .env file instead
 const firebaseConfig = {
   apiKey: "AIzaSyDF7HGq6eOaNbkjeYivQ2xVVX5knWG5Xt0",
   authDomain: "learn--platfrom.firebaseapp.com",
